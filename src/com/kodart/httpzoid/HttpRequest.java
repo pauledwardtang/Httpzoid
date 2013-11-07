@@ -1,6 +1,7 @@
 package com.kodart.httpzoid;
 
 import java.net.Proxy;
+import java.util.Map;
 
 /**
  * Http request
@@ -22,6 +23,13 @@ public interface HttpRequest {
      * @return current request for chaining
      */
     public HttpRequest header(String key, String value);
+
+    /**
+     * Set multiple request headers
+     * @param headerMap map of headers
+     * @return current request for chaining
+     */
+    public HttpRequest headers(Map<String, String> headerMap);
 
     /**
      * Set request custom content type. By default it uses content type of the provided serializer.

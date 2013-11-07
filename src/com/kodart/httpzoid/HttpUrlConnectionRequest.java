@@ -2,6 +2,7 @@ package com.kodart.httpzoid;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
 import com.google.gson.JsonParseException;
 import com.kodart.httpzoid.serializers.HttpSerializer;
 
@@ -48,6 +49,13 @@ public class HttpUrlConnectionRequest implements HttpRequest {
     @Override
     public HttpRequest header(String key, String value) {
         headers.put(key, value);
+        return this;
+    }
+
+    @Override
+    public HttpRequest headers(Map<String, String> headerMap)
+    {
+        this.headers.putAll(headerMap);
         return this;
     }
 
@@ -268,4 +276,5 @@ public class HttpUrlConnectionRequest implements HttpRequest {
         }
         return Object.class;
     }
+
 }
